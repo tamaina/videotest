@@ -2,13 +2,16 @@
 <video controls id="video" src="monohls.m3u8">Cannot play</video>
 <script>
   var video = document.getElementById('video');
-  if(Hls.isSupported() && video.canPlayType('application/vnd.apple.mpegurl') === "") {
+  if (Hls.isSupported() && video.canPlayType('application/vnd.apple.mpegurl') === "") {
+    console.log('use hlsjs')
     var hls = new Hls();
     hls.loadSource(video.getAttribute('src'));
     hls.attachMedia(video);
     hls.on(Hls.Events.MANIFEST_PARSED,function() {
       video.play();
   });
+ } else {
+   console.log('use built-in')
  }
  // hls.js is not supported on platforms that do not have Media Source Extensions (MSE) enabled.
  // When the browser has built-in HLS support (check using `canPlayType`), we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video element through the `src` property.
