@@ -2,7 +2,7 @@
 <video controls id="video" src="monohls.m3u8">Cannot play</video>
 <script>
   var video = document.getElementById('video');
-  if(Hls.isSupported()) {
+  if(Hls.isSupported() && video.canPlayType('application/vnd.apple.mpegurl') === "") {
     var hls = new Hls();
     hls.loadSource(video.getAttribute('src'));
     hls.attachMedia(video);
