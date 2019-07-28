@@ -1,5 +1,5 @@
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<video controls id="video" src="monohls.m3u8">Cannot play</video>
+<video controls id="video" src="monohls.m3u8" width="400">Cannot play</video>
 <script>
   var video = document.getElementById('video');
   if (Hls.isSupported() && video.canPlayType('application/vnd.apple.mpegurl') === "") {
