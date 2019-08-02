@@ -28,13 +28,20 @@ const path = 'monorail.mp4';
   const minL = Math.min(d.width, d.height)
 
   let args = ['-i', path]
-  
+  let cnt = 0
+
   for (let i = 0; i < settings.length; i += 1) {
     const setting = settings[i]
     if (minL < setting.shortL) continue
-    args = args.concat([`-filter:v:${i}`, `scale=if(lt(iw\\,ih)\\,${setting.shortL}\\,-2):if(lt(ih\\,iw)\\,${setting.shortL}\\,-2)`, ...setting.args.replace(/%n/g, i).split(' '), '-map', '0'])
+    args.push(...[`-filter:v:${cnt}`, `scale=if(lt(iw\\,ih)\\,${setting.shortL}\\,-2):if(lt(ih\\,iw)\\,${setting.shortL}\\,-2)`, ...setting.args.replace(/%n/g, cnt).split(' ')])
+    cnt += 1
   }
-  args = args.concat([
+
+  for (let i = 0; i < cnt; i += 1) {
+    args.push('-map', '0')
+  }
+
+  args.push(...[
     '-f', 'dash',
     '-init_seg_name', 'mono-init-s$RepresentationID$.$ext$',
     '-media_seg_name', 'mono-chunk-s$RepresentationID$-$Number%05d$.$ext$',
