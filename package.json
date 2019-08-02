@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/tamaina/videotest/issues"
   },
-  "homepage": "https://github.com/tamaina/videotest#readme"
+  "homepage": "https://github.com/tamaina/videotest#readme",
+  "dependencies": {
+    "get-video-dimensions": "^1.0.0"
+  }
 }

@@ -3,4 +3,4 @@ ffmpeg -re -i monorail.mp4 ^
 -filter:v:1 scale=640:-2 -c:v:1 libx264 -b:v:1 400k -c:a:1 aac -b:a:1 128k -threads:v:1 1 ^
 -filter:v:2 scale=480:-2 -c:v:2 libvpx-vp9 -b:v:2 150k -c:a:2 libopus -b:a:2 96k -threads:v:2 1 ^
 -quality realtime -speed 4 -keyint_min 120 -g 120 ^
--map 0 -map 0 -map 0 -f dash -adaptation_sets "id=0,streams=v id=1,streams=a" -init_seg_name mono-init-s$RepresentationID$ -media_seg_name mono-chunk-s$RepresentationID$-$Number%%05d$ -use_template 1 -use_timeline 0 -hls_playlist 1 output.mpd 2> error.txt 
+-map 0 -map 0 -map 0 -f dash -init_seg_name mono-init-s$RepresentationID$.$ext$ -media_seg_name mono-chunk-s$RepresentationID$-$Number%%05d$.$ext$ -adaptation_sets "id=0,streams=v id=1,streams=a" -use_template 1 -use_timeline 0 mono.mpd 2> error.txt 
