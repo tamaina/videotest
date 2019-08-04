@@ -4,19 +4,19 @@ const getD = require('get-video-dimensions')
 const settings = [
   {
     shortL: 1080,
-    args: "-c:v:%n libvpx-vp9 -b:v:%n 2000k -c:a:%n libopus -b:a:%n 128k -threads:v:%n 1 -quality:v:%n realtime -speed:v:%n 10 -keyint_min:v:%n 120 -g:v:%n 120"
+    args: "-c:v:%n libvpx-vp9 -b:v:%n 2000k -c:a:%n libvorbis -b:a:%n 128k -threads:v:%n 1 -quality:v:%n realtime -speed:v:%n 10 -keyint_min:v:%n 120 -g:v:%n 120"
   },
   {
     shortL: 720,
-    args: "-c:v:%n libvpx-vp9 -b:v:%n 1000k -c:a:%n libopus -b:a:%n 128k -threads:v:%n 1 -quality:v:%n realtime -speed:v:%n 4 -keyint_min:v:%n 120 -g:v:%n 120"
+    args: "-c:v:%n libvpx-vp9 -b:v:%n 1000k -c:a:%n libvorbis -b:a:%n 128k -threads:v:%n 1 -quality:v:%n realtime -speed:v:%n 4 -keyint_min:v:%n 120 -g:v:%n 120"
   },
   {
     shortL: 540,
-    args: "-c:v:%n libx264 -b:v:%n 400k -c:a:%n aac -b:a:%n 128k -threads:v:%n 1 -quality:v:%n realtime -speed:v:%n 4 -keyint_min:v:%n 120 -g:v:%n 120"
+    args: "-c:v:%n libvpx-vp9 -b:v:%n 400k -c:a:%n libvorbis -b:a:%n 128k -threads:v:%n 1 -quality:v:%n realtime -speed:v:%n 4 -keyint_min:v:%n 120 -g:v:%n 120"
   },
   {
     shortL: 180,
-    args: "-c:v:%n libvpx-vp9 -b:v:%n 150k -c:a:%n libopus -b:a:%n 96k -threads:v:%n 1 -quality:v:%n realtime -speed:v:%n 4 -keyint_min:v:%n 120 -g:v:%n 120"
+    args: "-c:v:%n libvpx-vp9 -b:v:%n 150k -c:a:%n libvorbis -b:a:%n 96k -threads:v:%n 1 -quality:v:%n realtime -speed:v:%n 4 -keyint_min:v:%n 120 -g:v:%n 120"
   }
 ]
 
